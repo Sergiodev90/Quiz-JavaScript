@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "index.js",
-    "dev": "nodemon index.js"
+    "start": "app.js",
+    "dev": "nodemon app.js",
+    "style":"npx tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch"
   },
   "author": "sergionoriegacantillo@gmail.com",
   "license": "ISC",

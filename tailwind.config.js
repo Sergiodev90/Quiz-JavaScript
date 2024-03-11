@@ -1,10 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    './views/partials/**/*.ejs',
-    './views/**/*.ejs',
-    './views/layouts/**/*-ejs'
-   ],
+    "./views/**/*.ejs",
+    "./views/partials/**/*.ejs",
+    "./views/partials/**/*.ejs"
+
+],
   theme: {
     extend: {},
   },
