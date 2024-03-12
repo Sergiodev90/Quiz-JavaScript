@@ -1,6 +1,6 @@
 import express  from "express";
 import expressEjsLayouts from "express-ejs-layouts";
-import router from './server/routes/main.js'
+import router from './server/routes/main.js';
 const app = express()
 const PORT = 3000
 
@@ -9,6 +9,7 @@ app.use(express.static("public"))
 
 
 app.use(expressEjsLayouts)
+
 app.set('layout','./layouts/main')
 app.set('view engine','ejs')
 
