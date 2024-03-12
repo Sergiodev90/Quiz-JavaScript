@@ -2,7 +2,12 @@
     --color-header: #16007A;
     --color-background: #35007A;
     --color-section-quseetion: #45007A;
+    --border-button: #52007A;
+    --fifth-color: #5E007A;
+    --color:#68007A;
+    --color-border:#7A0045;
 }
+
 
 *{
     box-sizing: border-box;
@@ -42,15 +47,37 @@ html{
     padding: 0 20px 0 20px;
 }
 
-/* .container__main{
+.container__main{
     max-width: 870px;
     margin: 0 auto;
     
-} */
-
+} 
 
 
 .container__take-test{
     display: flex;
+    justify-content: center;
     justify-content: space-around;
+}
+.container__take-test h1{
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+.container__take-test h3{
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.container__take-test button{
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+    background-color: var(--color-border); 
+    color:white; 
+    border: 2px solid black;
 }
