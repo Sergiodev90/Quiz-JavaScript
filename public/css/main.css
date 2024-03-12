@@ -48,26 +48,23 @@ html{
 }
 
 .container__main{
-    max-width: 870px;
+    max-width: 1200px;
     margin: 0 auto;
-    
-} 
-
-
+}  
 .container__take-test{
     display: flex;
-    justify-content: center;
-    justify-content: space-around;
+    justify-content: space-between;
+
 }
-.container__take-test h1{
+.container__take-test-text h1{
     font-size: 4rem;
     margin-bottom: 20px;
 }
-.container__take-test h3{
+.container__take-test-text h3{
     font-size: 2rem;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
-.container__take-test button{
+.container__take-test-text button{
     color: black;
     padding: 15px 32px;
     text-align: center;
