@@ -1,7 +1,8 @@
 import express  from "express";
 import expressEjsLayouts from "express-ejs-layouts";
 import mainRouter from './server/routes/main.js';
-import quizRouter from './server/routes/Quiz.js'
+import SelectquizRouter from './server/routes/Select-quiz.js'
+import quizRouter from './server/routes/quiz.js'
 
 const app = express()
 const PORT = 3000
@@ -18,7 +19,9 @@ app.set('layout','./layouts/main-quiz')
 app.set('view engine','ejs')
 
 app.use('/',mainRouter)
-app.use('/select-quiz',quizRouter)
+app.use('/select-quiz',SelectquizRouter)
+app.use('/quiz',quizRouter)
+
 
 app.listen(PORT,()=>{
     console.log("App runing succesfully at http://localhost:3000")
