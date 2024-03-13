@@ -18,7 +18,7 @@ app.set('layout','./layouts/main-quiz')
 app.set('view engine','ejs')
 
 app.use('/',mainRouter)
-app.use('/quiz',quizRouter)
+app.use('/select-quiz',quizRouter)
 
 app.listen(PORT,()=>{
     console.log("App runing succesfully at http://localhost:3000")
