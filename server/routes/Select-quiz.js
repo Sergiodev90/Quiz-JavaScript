@@ -28,7 +28,7 @@ router.post('',(req,res) =>{
         difficulty : req.body.trivia_difficulty,
         type : req.body.type
     }
-    console.log("Data received From Select-quiz")
+    console.log("Data received From Select-quiz.ejs")
     res.redirect('/quiz')
 })
 export {data_quiz};

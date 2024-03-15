@@ -5,7 +5,7 @@ import { data_quiz } from "./Select-quiz.js";
 const router = express.Router()
 
 
-router.get('',(req,res) => {
+router.get('',async(req,res) => {
     const locals = {
         title:'Quiz',
     }
@@ -14,17 +14,23 @@ router.get('',(req,res) => {
         locals,
     })
     console.log("Data received from the data exported",data_quiz)
-   
-})
-router.get('/category',async(req,res) =>{
     try{
         const result = await axios.get(`${API_BASE_URL}?amount=${data_quiz.amount_question}&category=${data_quiz.category}&difficulty=${data_quiz.difficulty}&type=${data_quiz.type}`)
-        const response = result.data
+        const response = result.data;
         console.log(response)
     }catch(error){
         console.log(error)
     }
 })
+// router.get('',async(req,res) =>{
+//     try{
+//         const result = await axios.get(`${API_BASE_URL}?amount=${data_quiz.amount_question}&category=${data_quiz.category}&difficulty=${data_quiz.difficulty}&type=${data_quiz.type}`)
+//         const response = result.data;
+//         console.log(response)
+//     }catch(error){
+//         console.log(error)
+//     }
+// })
 
 
 export default router;
