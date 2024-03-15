@@ -3,11 +3,12 @@ import expressEjsLayouts from "express-ejs-layouts";
 import mainRouter from './server/routes/main.js';
 import SelectquizRouter from './server/routes/Select-quiz.js'
 import quizRouter from './server/routes/quiz.js'
+import bodyParser from "body-parser";
 
 const app = express()
 const PORT = 3000
 
-
+app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static("public"))
 
 
