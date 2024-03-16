@@ -8,6 +8,8 @@ router.use(bodyParser.urlencoded({
 
 let data_quiz = {}
 
+// Ejemplo de cómo acceder a los elementos de la lista
+
 router.get('', (req, res) => {
     const locals = {
         title: "Quiz",
@@ -21,7 +23,7 @@ router.get('', (req, res) => {
 
 
 router.post('',(req,res) =>{
-
+    console.log(req.body.category_questions)
     data_quiz = {
         amount_question:req.body.amount_questions,
         category: req.body.category_questions,
