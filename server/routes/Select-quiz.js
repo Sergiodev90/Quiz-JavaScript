@@ -14,7 +14,7 @@ router.get('', (req, res) => {
         description: "Simple Quiz"
     }
     res.render('Select-tquiz',{
-        layout:'./layouts/main-quiz',
+        layout:'./layouts/select-quiz',
         locals
     });// Especific el layout del quiz
 });

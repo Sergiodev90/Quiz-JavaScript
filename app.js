@@ -15,8 +15,8 @@ app.use(express.static("public"))
 app.use(expressEjsLayouts)
 
 app.set('layout','./layouts/main')
+app.set('layout','./layouts/select-quiz')
 app.set('layout','./layouts/main-quiz')
-
 app.set('view engine','ejs')
 
 app.use('/',mainRouter)

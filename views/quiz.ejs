@@ -1,25 +1,33 @@
+<p class="SCORE">SCORE: <%= score%></p>
 
 <div class="container__quiz-choosen">
-    
+
+   
+
+   <form action="/quiz/submit" method="post">
    
    <%data.slice(indexPageStart,indexPageEnd).forEach((item) =>{%>
       <div class="header__question">
-         <h1> <%= item.category %></h1>
-         <h1> <%=item.index %> / <%= data.length %></h1>
+         <h1 class="title__category-questions"> <%= item.category %></h1>
+         <h1 class="title__lenght_questions"> <%=item.index %> / <%= data.length %></h1>
       </div>
-      <h2><%= item.question %></h2>
+      <h2 class="title__question-questions"><%= item.question %></h2>
       <%item.answers.forEach(element => { %>
-         <form action="/quiz/submit" method="get">
-         <button type="submit" class="button__Answer" name="choice" value="<%= element%>"><%=element%></button>
-         </form>
+         <div class="container__options-question">
+         <button type="submit" class="button__Answer button__section-question" name="choice" value="<%= element%>"><%=element%></button>
+      </div>
       <%});%>
-
    <%})%>
-   <% if (message) { %>
-      <p><%= message %></p> <!-- Muestra el mensaje de respuesta -->
-  <% } %>
-  <p>Puntaje: <%= score %></p> <!-- Muestra el puntaje -->
-  <button onclick="">Next</button> <!-- Botón "Next" -->
+</form>
+ <!-- Muestra el puntaje -->
+   <!-- Botón "Next" -->
+</div>
+<div class="container__bottom-question">
+   <span>   <% if (message) { %>
+   <p class="message__question"><%= message %></p> <!-- Muestra el mensaje de respuesta -->
+   <% } %>
+   </span>
+   <button class="button__next button__section-question">Next</button>
 </div>
 
 

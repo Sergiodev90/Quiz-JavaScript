@@ -67,18 +67,23 @@ router.get('/dataquiz',(req,res)=>{
 
 
 router.get('',(req,res) =>{
+    const locals = {
+        title: "Quiz",
+        description: "Simple Quiz"
+    }
     res.render('quiz',{
+        layout:'./layouts/main-quiz',
         data: dataMakeQuiz,
         indexPageStart: indexStart,
         indexPageEnd:indexEnd,
         message:message,
         score:score,
-       
+        locals:locals
     })
 })
 
-router.get('/submit',(req,res) =>{
-        const user__choice = req.query.choice;
+router.post('/submit',(req,res) =>{
+        const user__choice = req.body.choice;
         console.log(user__choice)
 
         message = "";
