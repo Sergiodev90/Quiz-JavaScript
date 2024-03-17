@@ -11,7 +11,6 @@ const PORT = 3000
 
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static("public"))
-app.use('/src', express.static(path.join(new URL('.', import.meta.url).pathname, 'src')));
 
 app.use(expressEjsLayouts)
 
@@ -23,8 +22,6 @@ app.set('view engine','ejs')
 app.use('/',mainRouter)
 app.use('/select-quiz',SelectquizRouter)
 app.use('/quiz',quizRouter)
-
-
 app.listen(PORT,()=>{
     console.log("App runing succesfully at http://localhost:3000")
 })

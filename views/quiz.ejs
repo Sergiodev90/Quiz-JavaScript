@@ -1,10 +1,26 @@
-<div class="container__quiz-choosen">
-    <% for(let i = 0;i < (data.length- data.length) + 1;i++){ %>
-        
-        <h1>Category: <%= data[i].category%> </h1>
-        <h2><%= data[i].question%></h2>
-        
 
-    <%}%>
+<div class="container__quiz-choosen">
+    
+   
+   <%data.slice(indexPageStart,indexPageEnd).forEach((item) =>{%>
+      <div class="header__question">
+         <h1> <%= item.category %></h1>
+         <h1> <%=item.index %> / <%= data.length %></h1>
+      </div>
+      <h2><%= item.question %></h2>
+      <%item.answers.forEach(element => { %>
+         <form action="/quiz/submit" method="get">
+         <button type="submit" class="button__Answer" name="choice" value="<%= element%>"><%=element%></button>
+         </form>
+      <%});%>
+
+   <%})%>
+   <% if (message) { %>
+      <p><%= message %></p> <!-- Muestra el mensaje de respuesta -->
+  <% } %>
+  <p>Puntaje: <%= score %></p> <!-- Muestra el puntaje -->
+  <button onclick="">Next</button> <!-- Botón "Next" -->
 </div>
+
+
 
