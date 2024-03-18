@@ -1,7 +1,8 @@
 import express, { response } from "express";
-import axios, { isCancel } from "axios";
-import { API_BASE_URL } from "../../api/apiconfig.js";
-import { data_quiz } from "./Select-quiz.js";
+// import axios, { isCancel } from "axios";
+// import { API_BASE_URL } from "../../api/apiconfig.js";
+// import { data_quiz } from "./Select-quiz.js";
+import { result } from "./Select-quiz.js";
 const router = express.Router()
 
 
@@ -10,30 +11,29 @@ router.use(bodyParser.urlencoded({extended: true}))
 
 
 
-let result;
 let AnswerTocheck;
 let indexStart = 0
 let indexEnd = 1
 let score = 0
 let message;
-let dataMakeQuiz = []
+let dataMakeQuiz = new Array;
 let answersWasRespond = false;
 
 
-router.get('/api',async(req,res) => {
+// router.get('/api',async(req,res) => {
 
-    console.log("Data received from the data exported",data_quiz)
+//     console.log("Data received from the data exported",data_quiz)
 
-    try{
-        //ge the api of opendtb
-        const response = await axios.get(`${API_BASE_URL}?amount=${data_quiz.amount_question}&category=${data_quiz.category}&difficulty=${data_quiz.difficulty}&type=${data_quiz.type}`)
-        result = response.data.results;
-        console.log(result)
-    }catch(error){
-        console.error('Problem to take the Data',error)
-    }
-    res.redirect('/quiz/dataquiz')
-})
+//     try{
+//         //ge the api of opendtb
+//         const response = await axios.get(`${API_BASE_URL}?amount=${data_quiz.amount_question}&category=${data_quiz.category}&difficulty=${data_quiz.difficulty}&type=${data_quiz.type}`)
+//         result = response.data.results;
+//         console.log(result)
+//     }catch(error){
+//         console.error('Problem to take the Data',error)
+//     }
+//     res.redirect('/quiz/dataquiz')
+// })
 
 router.get('/dataquiz',(req,res)=>{
     for (let i = 0; i < result.length; i++) {
@@ -122,7 +122,6 @@ router.post('/next',(req,res) =>{
             message = ''
             answersWasRespond = false
         }
-        
     }
     res.redirect('/quiz')
 })
