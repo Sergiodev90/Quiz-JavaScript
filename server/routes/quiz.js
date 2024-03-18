@@ -10,7 +10,6 @@ import bodyParser from "body-parser";
 router.use(bodyParser.urlencoded({extended: true}))
 
 
-
 let AnswerTocheck;
 let indexStart = 0
 let indexEnd = 1
@@ -18,6 +17,8 @@ let score = 0
 let message;
 let dataMakeQuiz = new Array;
 let answersWasRespond = false;
+
+
 
 
 // router.get('/api',async(req,res) => {
@@ -35,36 +36,69 @@ let answersWasRespond = false;
 //     res.redirect('/quiz/dataquiz')
 // })
 
+
 router.get('/dataquiz',(req,res)=>{
-    for (let i = 0; i < result.length; i++) {
-        // Crear un objeto para cada pregunta
-        let IncorrectAns = result[i].incorrect_answers;
-        IncorrectAns.push(result[i].correct_answer);
-
-        const shuffleArray = (array) => {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        };
-        IncorrectAns = shuffleArray(IncorrectAns)
-
-        let questionObj = {
-            category: result[i].category,
-            question: result[i].question,
-            correct_answer :result[i].correct_answer,
-            answers: IncorrectAns,
-            index: i + 1
-        };
-        // Agregar el objeto de pregunta al array dataMakeQuiz
-        dataMakeQuiz.push(questionObj);
+    if(dataMakeQuiz.length < 1){
+        for (let i = 0; i < result.length; i++) {
+            // Crear un objeto para cada pregunta
+            let IncorrectAns = result[i].incorrect_answers;
+            IncorrectAns.push(result[i].correct_answer);
+    
+            const shuffleArray = (array) => {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            };
+            IncorrectAns = shuffleArray(IncorrectAns)
+    
+            let questionObj = {
+                category: result[i].category,
+                question: result[i].question,
+                correct_answer :result[i].correct_answer,
+                answers: IncorrectAns,
+                index: i + 1
+            };
+            // Agregar el objeto de pregunta al array dataMakeQuiz
+            dataMakeQuiz.push(questionObj);
+        }
+    }else{
+        dataMakeQuiz = []
+        for (let i = 0; i < result.length; i++) {
+            // Crear un objeto para cada pregunta
+            let IncorrectAns = result[i].incorrect_answers;
+            IncorrectAns.push(result[i].correct_answer);
+    
+            const shuffleArray = (array) => {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            };
+            IncorrectAns = shuffleArray(IncorrectAns)
+    
+            let questionObj = {
+                category: result[i].category,
+                question: result[i].question,
+                correct_answer :result[i].correct_answer,
+                answers: IncorrectAns,
+                index: i + 1
+            };
+            // Agregar el objeto de pregunta al array dataMakeQuiz
+            dataMakeQuiz.push(questionObj);
+        }
     }
+    
 
 
 
     res.redirect('/quiz')
 })
+
+
+
 
 
 router.get('',(req,res) =>{
