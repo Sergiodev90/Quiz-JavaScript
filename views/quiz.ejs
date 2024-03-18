@@ -1,4 +1,5 @@
-<p class="SCORE">SCORE: <%= score%></p>
+<p>SCORE: <%=score%></p>
+
 
 <div class="container__quiz-choosen">
 
@@ -23,11 +24,16 @@
    <!-- Botón "Next" -->
 </div>
 <div class="container__bottom-question">
-   <span>   <% if (message) { %>
-   <p class="message__question"><%= message %></p> <!-- Muestra el mensaje de respuesta -->
-   <% } %>
+   <span>   
+      <% if (message) { %>
+         <p class="message__question">
+            <%= message %>
+         </p> <!-- Muestra el mensaje de respuesta -->
+      <% } %>
    </span>
-   <button class="button__next button__section-question">Next</button>
+   <form action="/quiz/next" method="post">
+      <button class="button__next button__section-question" type="submit" value="next" name="respondeNext">Next</button>
+   </form>
 </div>
 
 

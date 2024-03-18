@@ -17,6 +17,7 @@ let indexEnd = 1
 let score = 0
 let message;
 let dataMakeQuiz = []
+let answersWasRespond = false;
 
 
 router.get('/api',async(req,res) => {
@@ -60,7 +61,7 @@ router.get('/dataquiz',(req,res)=>{
         dataMakeQuiz.push(questionObj);
     }
 
-    AnswerTocheck = dataMakeQuiz[indexStart].correct_answer;
+
 
     res.redirect('/quiz')
 })
@@ -78,7 +79,8 @@ router.get('',(req,res) =>{
         indexPageEnd:indexEnd,
         message:message,
         score:score,
-        locals:locals
+        locals:locals,
+        answersWasRespond:answersWasRespond
     })
 })
 
@@ -87,16 +89,43 @@ router.post('/submit',(req,res) =>{
         console.log(user__choice)
 
         message = "";
-        if (user__choice== AnswerTocheck) {
-            message = "Respuesta correcta";
-            score = score + 1; // Aumenta el puntaje si la respuesta es correcta
-        } else {
-            message = "Respuesta incorrecta";
+        if(!answersWasRespond){
+            if (user__choice === dataMakeQuiz[indexStart].correct_answer) {
+                message = "Respuesta correcta"; 
+                score++; 
+            }
+            else{
+                message = 'Respuesta incorrecta'
+                answersWasRespond = true
+
+            }
+            answersWasRespond = true
+        }else{
+            message = 'Ya has respondido esta pregunta'
         }
-        res.redirect('/quiz')
-        
+
+
+     res.redirect('/quiz')  
+       
 })
 
+
+router.post('/next',(req,res) =>{
+    let next = req.body.respondeNext
+    if(!answersWasRespond){
+        message = 'Aun no has respondido'
+    }else{
+        console.log(next)
+        if(next == 'next'){
+            indexStart = indexStart + 1
+            indexEnd = indexEnd + 1
+            message = ''
+            answersWasRespond = false
+        }
+        
+    }
+    res.redirect('/quiz')
+})
 
 
 
