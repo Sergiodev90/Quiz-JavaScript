@@ -7,15 +7,12 @@
     import bodyParser from "body-parser";
     router.use(bodyParser.urlencoded({extended: true}))
 
-    let AnswerTocheck;
     let indexStart = 0
     let indexEnd = 1
     let score = 0
     let message;
     let dataMakeQuiz = new Array;
     let answersWasRespond = false;
-    let hasBeenFinishedQuiz = true
-    let nextCount = []
 
 
 
@@ -56,7 +53,7 @@
                     question: result[i].question,
                     correct_answer :result[i].correct_answer,
                     answers: IncorrectAns,
-                    index: i 
+                    index: i + 1
                 };
                 // Agregar el objeto de pregunta al array dataMakeQuiz
                 dataMakeQuiz.push(questionObj);
@@ -155,14 +152,16 @@
                     indexEnd = indexEnd + 1
                     message = ''
                     answersWasRespond = false
-                    hasBeenFinishedQuiz = true
                 }
             }
             if(indexStart >= dataMakeQuiz.length){
-                score = 0
-                indexEnd = 1
-                indexStart = 0
                 res.redirect('/result-quiz')
+                setTimeout(() => {
+                    score = 0
+                    indexEnd = 1
+                    indexStart = 0
+                    message = ''
+                }, 10000);
             }else{
                 res.redirect('/quiz')
             }
