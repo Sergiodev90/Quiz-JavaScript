@@ -26,6 +26,13 @@ app.use('/',mainRouter)
 app.use('/select-quiz',SelectquizRouter)
 app.use('/quiz',quizRouter)
 app.use('/result-quiz',ResultRouter)
+
+
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
+  });
+
 app.listen(PORT,()=>{
     console.log("App runing succesfully at http://localhost:3000")
 })
