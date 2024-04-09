@@ -126,7 +126,7 @@
                     score++; 
                 }
                 else{
-                    message = `Respuesta incorrecta y la respuesta correcta era: ${dataMakeQuiz[indexStart].correct_answer} `
+                    message = `Respuesta incorrecta y la respuesta correcta era: ${dataMakeQuiz[indexStart].correct_answer}`
                     answersWasRespond = true
 
                 }
