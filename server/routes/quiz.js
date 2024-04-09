@@ -47,7 +47,6 @@
                     return array;
                 };
                 IncorrectAns = shuffleArray(IncorrectAns)
-        
                 let questionObj = {
                     category: result[i].category,
                     question: result[i].question,
@@ -74,7 +73,7 @@
                     return array;
                 };
                 IncorrectAns = shuffleArray(IncorrectAns)
-        
+
                 let questionObj = {
                     category: result[i].category,
                     question: result[i].question,
@@ -127,17 +126,16 @@
                     score++; 
                 }
                 else{
-                    message = 'Respuesta incorrecta'
+                    message = `Respuesta incorrecta y la respuesta correcta era: ${dataMakeQuiz[indexStart].correct_answer} `
                     answersWasRespond = true
 
                 }
                 answersWasRespond = true
             }else{
-                message = 'Ya has respondido esta pregunta'
+            message =  `ya has respondido a la pregunta`        
             }
 
         res.redirect('/quiz')  
-        
     })
 
 
