@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "index.js",
     "dev": "nodemon index.js",
-    "build":"webpack"
+    "build": "ejs-cli ./views -o ./build"
   },
   "author": "sergionoriegacantillo@gmail.com",
   "license": "ISC",
@@ -16,6 +16,7 @@
     "axios": "^1.6.7",
     "body-parser": "^1.20.2",
     "ejs": "^3.1.9",
+    "ejs-cli": "^2.2.3",
     "express": "^4.18.3",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.18.0"
