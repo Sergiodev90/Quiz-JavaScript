@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "app.js",
-    "dev": "nodemon app.js"
+    "start": "index.js",
+    "dev": "nodemon index.js",
+    "build":"webpack"
   },
   "author": "sergionoriegacantillo@gmail.com",
   "license": "ISC",
@@ -21,6 +22,8 @@
   },
   "devDependencies": {
     "gh-pages": "^6.1.1",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
   }
 }

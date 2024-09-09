@@ -47,8 +47,9 @@ router.get('/api',async (req,res) =>{
     catch(error){
         console.error(error)
     }
-
-    res.redirect('/quiz/dataquiz')
+    setTimeout(() => {
+        res.redirect('/quiz/dataquiz')
+    },1000)
 })
 export {data_quiz};
 export {result}

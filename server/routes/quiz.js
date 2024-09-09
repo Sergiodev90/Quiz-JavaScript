@@ -161,7 +161,7 @@
                     indexEnd = 1
                     indexStart = 0
                     message = ''
-                }, 10000);
+                }, 5000);
             }else{
                 res.redirect('/quiz')
             }
